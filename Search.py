@@ -48,11 +48,9 @@ for words in common:
     histogram.pop(words,None)
 
 #%%
-count = 0
 for words in histogram:
     histogram[words]=list(histogram[words])
-    if len(histogram[words])>1:
-        count+=1
+
 #%%
 with open("sample.json", "w") as outfile:  
     json.dump(histogram, outfile)

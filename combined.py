@@ -65,13 +65,13 @@ def autocomplete(string):
     for item in unigrams:
         word=item[0]
         if starts(word,string) and item[1] > CUTOFF_FREQ:
-            (query,suggestions)=suggest(word)
+            (query,suggestions)=suggest(word,bigrams)
             output[query]=suggestions
     print(output)     
     return output
     
 
-def suggest(query):
+def suggest(query,bigrams):
     
     suggestions=[]
     query=tokenize(query)[0]

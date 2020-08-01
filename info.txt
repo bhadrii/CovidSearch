@@ -1,3 +1,5 @@
+Config.py has the variables for frequency, path for storing the json and common helper functions for the other files. 
+
 Setup.py takes care of the intial setting up consisting of:
 1) Flattening the data
 2) Cleaning the data

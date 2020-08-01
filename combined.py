@@ -38,7 +38,7 @@ def filesearch(query):
     query = set(stemtokenize(query))
     
     read_file=open(SETUP_PATH,encoding="utf8")
-	file_words,file_idfs=json.load(read_file)['search_data']
+    file_words,file_idfs=json.load(read_file)['search_data']
 
     # Determine top file matches according to TF-IDF
     filenames = top_files(query, file_words, file_idfs)

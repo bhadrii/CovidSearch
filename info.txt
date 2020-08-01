@@ -5,11 +5,11 @@ Setup.py takes care of the intial setting up consisting of:
 4) Storing the bigram frequencies
 
 search.py takes queries as arguments and returns a list of article codes best chosen for them.
->>search("vaccine")
+In[4]: search("vaccine")
 Out[4]: ['3R5w', '4n45', 'HtyW', 'ENkE', 'D5r9',...]
 
 suggestions.py takes a query as arguments and returns a Dictionary of query mapped to the suggestion words along with their weights.
->>suggest("vaccine")
+In[5]: suggest("vaccine")
 Out[5]: 
 {'vaccine': [('candidates', 7),
   ('developed', 6),

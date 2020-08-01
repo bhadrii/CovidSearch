@@ -4,7 +4,8 @@ Created on Sat Aug  1 14:17:43 2020
 
 @author: bhadr
 """
-from config import SETUP_PATH,stemtokenize,tokenize
+from config import SETUP_PATH,stemtokenize,tokenize,URL
+from urllib.request import urlretrieve
 
 import math
 import json
@@ -32,18 +33,18 @@ def compute_idfs(documents):
         idf = math.log(len(documents) / f)
         idfs[word] = idf
     return idfs
-def setup(path="cw_data.json"):
-    
+def setup(path="corpus.json"):
+    download=urlretrieve(URL, path)
     flattened=dict()
     read_file=open(path,encoding="utf8")
     data=json.load(read_file)
     for region in data:
         for date in data[region]:
-            for codes in data[region][date]:
+            for codes in data:
                 flattened[codes]=dict()
                 #flattened[codes]["id"]=data[region][date][codes]["hash"]
-                flattened[codes]["digest"]=data[region][date][codes]["digests"]["English"]["digest"]
-                flattened[codes]["headline"]=data[region][date][codes]["digests"]["English"]["headline"]
+                flattened[codes]["digest"]=data[codes]["digest"]
+                flattened[codes]["headline"]=data[codes]["headline"]
     file_words = {
                     codes: stemtokenize(flattened[codes]["digest"]+flattened[codes]["headline"])
                     for codes in flattened

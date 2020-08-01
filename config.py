@@ -5,6 +5,8 @@ from nltk.stem import PorterStemmer
 porter = PorterStemmer()
 SETUP_PATH="masterdata.json"
 CUTOFF_FREQ=5
+URL='https://covidwire.firebaseio.com/corpus.json'
+
 
 def stemtokenize(document):
     """

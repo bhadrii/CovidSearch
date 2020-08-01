@@ -34,7 +34,7 @@ def top_files(query, files, idfs,FILE_MATCHES=0):
     
 
 
-def search(query):
+def filesearch(query):
     query = set(stemtokenize(query))
     
     read_file=open(SETUP_PATH,encoding="utf8")
@@ -82,7 +82,11 @@ def suggest(query):
         word2=items[0][1]
         if query==word1 and items[1]>CUTOFF_FREQ:
             suggestions.append((word2,items[1]))
-        
-        
-    
+            
     return (query,suggestions)
+
+def search(keyword="keyword",type="suggest/search"):
+    if type=="search":
+        return filesearch(keyword)
+    elif type=="suggest":
+        return autocomplete(keyword)
